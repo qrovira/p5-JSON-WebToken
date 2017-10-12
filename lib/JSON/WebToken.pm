@@ -329,7 +329,7 @@ Default encryption algorithm is C<< HS256 >>. You can change algorithm as follow
       iss => 'joe',
       exp => 1300819380,
       'http://example.com/is_root' => JSON::true,
-  }, $pricate_key_string, 'RS256');
+  }, $private_key_string, 'RS256');
 
   my $claims = JSON::WebToken->decode($jwt, $public_key_string);
 
