@@ -53,11 +53,12 @@ Default encryption algorithm is `HS256`. You can change algorithm as following:
         iss => 'joe',
         exp => 1300819380,
         'http://example.com/is_root' => JSON::true,
-    }, $pricate_key_string, 'RS256');
+    }, $private_key_string, 'RS256');
 
     my $claims = JSON::WebToken->decode($jwt, $public_key_string);
 
-When you use RS256, RS384 or RS512 algorithm then, We need [Crypt::OpenSSL::RSA](https://metacpan.org/pod/Crypt::OpenSSL::RSA).
+When you use RS256, RS384 or RS512 algorithm then, we need [Crypt::OpenSSL::RSA](https://metacpan.org/pod/Crypt::OpenSSL::RSA),
+and for ES256, ES384 or ES512, we need [CryptX](https://metacpan.org/pod/CryptX).
 
 If you want to create a `Plaintext JWT`, should be specify `none` for the algorithm.
 
@@ -90,7 +91,8 @@ This method is adding signing algorithm.
     # resolve Some::Class::Algorithm
     JSON::WebToken->add_signing_algorithm('SOMEALGXXX' => '+Some::Class::Algorithm');
 
-SEE ALSO [JSON::WebToken::Crypt::HMAC](https://metacpan.org/pod/JSON::WebToken::Crypt::HMAC) or [JSON::WebToken::Crypt::RAS](https://metacpan.org/pod/JSON::WebToken::Crypt::RAS).
+SEE ALSO [JSON::WebToken::Crypt::HMAC](https://metacpan.org/pod/JSON::WebToken::Crypt::HMAC), [JSON::WebToken::Crypt::RSA](https://metacpan.org/pod/JSON::WebToken::Crypt::RSA) or
+[JSON::WebToken::Crypt::EC](https://metacpan.org/pod/JSON::WebToken::Crypt::EC).
 
 # FUNCTIONS
 
