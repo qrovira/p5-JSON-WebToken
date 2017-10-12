@@ -26,9 +26,9 @@ our $ALGORITHM_MAP = {
     RS256  => 'RSA',
     RS384  => 'RSA',
     RS512  => 'RSA',
-#    ES256  => 'EC',
-#    ES384  => 'EC',
-#    ES512  => 'EC',
+    ES256  => 'EC',
+    ES384  => 'EC',
+    ES512  => 'EC',
     none   => 'NONE',
 
     # for JWE
@@ -333,7 +333,8 @@ Default encryption algorithm is C<< HS256 >>. You can change algorithm as follow
 
   my $claims = JSON::WebToken->decode($jwt, $public_key_string);
 
-When you use RS256, RS384 or RS512 algorithm then, We need L<< Crypt::OpenSSL::RSA >>.
+When you use RS256, RS384 or RS512 algorithm then, we need L<< Crypt::OpenSSL::RSA >>,
+and for ES256, ES384 or ES512, we need L<< CryptX >>.
 
 If you want to create a C<< Plaintext JWT >>, should be specify C<< none >> for the algorithm.
 
@@ -366,7 +367,8 @@ This method is adding signing algorithm.
   # resolve Some::Class::Algorithm
   JSON::WebToken->add_signing_algorithm('SOMEALGXXX' => '+Some::Class::Algorithm');
 
-SEE ALSO L<< JSON::WebToken::Crypt::HMAC >> or L<< JSON::WebToken::Crypt::RSA >>.
+SEE ALSO L<< JSON::WebToken::Crypt::HMAC >>, L<< JSON::WebToken::Crypt::RSA >> or
+L<< JSON::WebToken::Crypt::EC >>.
 
 =head1 FUNCTIONS
 
