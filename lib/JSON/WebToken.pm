@@ -366,7 +366,7 @@ This method is adding signing algorithm.
   # resolve Some::Class::Algorithm
   JSON::WebToken->add_signing_algorithm('SOMEALGXXX' => '+Some::Class::Algorithm');
 
-SEE ALSO L<< JSON::WebToken::Crypt::HMAC >> or L<< JSON::WebToken::Crypt::RAS >>.
+SEE ALSO L<< JSON::WebToken::Crypt::HMAC >> or L<< JSON::WebToken::Crypt::RSA >>.
 
 =head1 FUNCTIONS
 
